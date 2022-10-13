@@ -1,0 +1,23 @@
+
+server:
+  port: 8088
+  servlet:
+    context-path: /thanhdat
+
+spring:
+  security:
+    user:
+      name: admin
+      password: 1234
+  datasource:
+    url: : ${{ secrets.URL }}
+    username: : ${{ secrets.USERNAME }}
+    password: : ${{ secrets.PASSWORD }}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  flyway:
+    enabled: false
+    driver-class-name: org.mysql.Driver
