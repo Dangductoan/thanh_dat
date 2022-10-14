@@ -5,14 +5,12 @@ server:
     context-path: /thanhdat
 
 spring:
+  config :
+    import : optional:application-dev.yml
   security:
     user:
       name: admin
       password: 1234
-  datasource:
-    url: : ${{ secrets.URL }}
-    username: : ${{ secrets.USERNAME }}
-    password: : ${{ secrets.PASSWORD }}
   jpa:
     hibernate:
       ddl-auto: update
