@@ -5,8 +5,8 @@ server:
     context-path: /thanhdat
 
 spring:
-  config :
-    import : optional:application-dev.yml
+  config:
+    import: optional:application-dev.yml
   security:
     user:
       name: admin
