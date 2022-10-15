@@ -7,10 +7,6 @@ server:
 spring:
   config:
     import: optional:application-dev.yml
-  security:
-    user:
-      name: admin
-      password: 1234
   jpa:
     hibernate:
       ddl-auto: update
