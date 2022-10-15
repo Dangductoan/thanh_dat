@@ -3,6 +3,7 @@ package com.toandd.project.thanhdat.security.service;
 
 import com.toandd.project.thanhdat.common.exception.GiraBusinessException;
 import com.toandd.project.thanhdat.security.dto.LoginDTO;
+import com.toandd.project.thanhdat.security.jwt.TokenService;
 import com.toandd.project.thanhdat.security.model.Admin;
 import com.toandd.project.thanhdat.security.repository.AdminRepository;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,11 +27,13 @@ class AuthServiceImpl implements AuthService {
     private final AdminRepository adminRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final TokenService tokenService;
 
-    AuthServiceImpl(AdminRepository adminRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
+    AuthServiceImpl(AdminRepository adminRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, TokenService tokenService) {
         this.adminRepository = adminRepository;
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
+        this.tokenService = tokenService;
     }
 
 
@@ -45,7 +48,7 @@ class AuthServiceImpl implements AuthService {
                     new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
             );
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            return "jwt";
+            return tokenService.generateToken(authentication);
         }
 
         throw new GiraBusinessException("password is incorrect");
