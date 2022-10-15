@@ -14,6 +14,7 @@ public class JpaConfiguration {
     public AuditorAware<String> auditorAware() {
         return new AuditorawareImpl();
     }
+
     static class AuditorawareImpl implements AuditorAware<String> {
         @Override
         public Optional<String> getCurrentAuditor() {

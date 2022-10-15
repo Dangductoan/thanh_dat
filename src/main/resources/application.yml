@@ -7,10 +7,6 @@ server:
 spring:
   config:
     import: optional:application-dev.yml
-  security:
-    user:
-      name: admin
-      password: 1234
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,4 +14,4 @@ spring:
     show-sql: true
   flyway:
     enabled: false
-    driver-class-name: org.mysql.Driver
+    driver-class-name: org.postgresql.Driver

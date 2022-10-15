@@ -45,7 +45,6 @@ public interface GenericService<T extends BaseEntity, D, I> {
         return getMapper().map(saveModel, dtoClass);
     }
     //update dto
-    D update(D dto);
 
 
 
