@@ -36,6 +36,9 @@ public class Product extends BaseEntity {
 
     @Column(name = BaseUtilityClass.Product.BUY_PRICE)
     private Integer buyPrice;
+    @Column(name = BaseUtilityClass.Product.SELF_PRICE)
+    private Integer selfPrice;
+
 
     @Column(name = BaseUtilityClass.Product.URL_IMAGE)
     @Pattern(regexp = BaseUtilityClass.Product.REGEX)

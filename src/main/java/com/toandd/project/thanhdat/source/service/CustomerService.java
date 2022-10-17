@@ -8,12 +8,14 @@ import com.toandd.project.thanhdat.source.repository.CustomerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 public interface CustomerService extends GenericService<Customer, CustomerDTO, UUID> {
 }
 @Service
+@Transactional
 class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
