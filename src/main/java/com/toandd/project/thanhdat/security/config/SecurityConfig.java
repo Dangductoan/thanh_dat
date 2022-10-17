@@ -40,6 +40,7 @@ public class SecurityConfig {
     public JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withPublicKey(rsaKeys.publicKey()).build();
     }
+
     @Bean
     public JwtEncoder jwtEncoder() {
         JWK jwk = new RSAKey.Builder((rsaKeys.publicKey())).privateKey(rsaKeys.privateKey()).build();
@@ -51,9 +52,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.cors()
                 .and().csrf().disable()
-                .authorizeRequests(auth -> auth.antMatchers("/api/v1/**","/auth/login","/auth/register").permitAll()
+                .authorizeRequests(auth -> auth.antMatchers("/api/v1/**", "/auth/login").permitAll()
                         .anyRequest().authenticated())
-                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
                 .build();

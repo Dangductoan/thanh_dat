@@ -73,6 +73,7 @@ public class BaseUtilityClass {
         public static final String ADDRESS = "T_ADDRESS";
         public static final String CITY = "T_CITY";
         public static final String COUNTRY = "T_COUNTRY";
+        public static final String DESCRIPTION = "T_DESCRIPTION" ;
     };
 
 }
