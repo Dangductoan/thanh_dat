@@ -14,11 +14,11 @@ import java.io.Serializable;
 @Builder
 public class LoginDTO implements Serializable {
 
-    @Size(min = 5, max = 100, message = " username must have length between {min} and {max}")
+    @Size(min = 5, max = 100, message = " Tên tài khoản phải có độ dài từ {min} đến {max}")
     @NotBlank
     @NotNull(message="Chưa nhập tên đăng nhập")
     private String username;
-    @Size(min = 5, max = 10, message = "password must have length between {min} and {max}")
+    @Size(min = 5, max = 10, message = "Mật khẩu phải có độ dài từ {min} đến {max}")
     @NotNull(message = "Chưa nhập tên mật khẩu")
     private String password;
 }
