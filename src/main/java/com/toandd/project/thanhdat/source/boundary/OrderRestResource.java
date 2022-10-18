@@ -22,16 +22,18 @@ public class OrderRestResource {
     @GetMapping()
     public Object getAll() {
         return ResponseUtils.get(
-          orderService.findAllDto(OrderDTO.class),
-          HttpStatus.OK
+                orderService.findAllDto(OrderDTO.class),
+                HttpStatus.OK
         );
     }
+
     @PostMapping()
     public Object save(@RequestBody @Valid OrderDTO dto) {
         return ResponseUtils.get(
-          orderService.save(dto, Order.class, OrderDTO.class),
+                orderService.save(dto, Order.class, OrderDTO.class),
                 HttpStatus.CREATED
 
         );
     }
+
 }

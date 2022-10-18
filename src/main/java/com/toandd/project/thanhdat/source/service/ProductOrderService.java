@@ -8,12 +8,14 @@ import com.toandd.project.thanhdat.source.repository.ProductOrderRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 public interface ProductOrderService extends GenericService<ProductOrder, ProductOrderDTO, UUID> {
 }
 @Service
+@Transactional
 class ProductOrderServiceImpl implements ProductOrderService {
 
     private final ProductOrderRepository productOrderRepository;

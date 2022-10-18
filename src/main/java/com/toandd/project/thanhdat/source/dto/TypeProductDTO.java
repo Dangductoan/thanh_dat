@@ -1,5 +1,6 @@
 package com.toandd.project.thanhdat.source.dto;
 
+import com.toandd.project.thanhdat.source.model.GroupProduct;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +19,11 @@ import java.util.UUID;
 @SuperBuilder
 public class TypeProductDTO {
     private UUID id;
-    @Size(min = 5, max = 30, message = "Tên loaị sản phẩm có độ dài từ {min} đến {max}")
-    @NotNull(message = "Chưa nhập tên khách hàng")
     private String name;
-    @Size(min = 5, max = 30, message = "Mã loại sản phẩm có độ dài từ {min} đến {max}")
-    @NotNull(message = "Chưa nhập tên khách hàng")
+
     private String code;
-    @NotBlank
+
     private String description;
+
+    private GroupProduct groupProduct;
 }
