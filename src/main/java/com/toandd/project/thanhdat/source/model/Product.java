@@ -36,16 +36,10 @@ public class Product extends BaseEntity {
 
     @Column(name = BaseUtilityClass.Product.BUY_PRICE)
     private Integer buyPrice;
-    @Column(name = BaseUtilityClass.Product.SELF_PRICE)
-    private Integer selfPrice;
-
 
     @Column(name = BaseUtilityClass.Product.URL_IMAGE)
     @Pattern(regexp = BaseUtilityClass.Product.REGEX)
     private String urlImage;
-
-    @ManyToMany(mappedBy = BaseUtilityClass.OrderMappedProduct.PRODUCT_MAPPED_ORDER)
-    private Set<Order> orders = new LinkedHashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "T_TYPE_PRODUCT_ID",nullable = false)
