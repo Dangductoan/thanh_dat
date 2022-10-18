@@ -2,10 +2,18 @@ package com.toandd.project.thanhdat.source.model;
 
 import lombok.experimental.UtilityClass;
 
-import javax.persistence.JoinColumn;
 
 @UtilityClass
 public class BaseUtilityClass {
+
+    @UtilityClass
+    public static class ProductOrder {
+
+        public static final String TABLE_NAME = "T_PRODUCT_ORDER" ;
+
+        public static final String QUANTITY = "T_QUANTITY";
+        public static final String SELF_PRICE = "T_SELF_PRICE";
+    };
 
     @UtilityClass
     public static class TypeProduct {
@@ -27,12 +35,12 @@ public class BaseUtilityClass {
     };
 
     @UtilityClass
-    public static class OrderMappedProduct {
+    public static class OrderMappedProductOrder {
 
-        public static final String PRODUCT_MAPPED_ORDER = "products";
-        public static final String JOIN_TABLE = "T_ORDER_MAPPED_PRODUCT";
+        public static final String PRODUCT_ORDER_MAPPED_ORDER = "productOrders";
+        public static final String JOIN_TABLE = "T_ORDER_MAPPED_PRODUCT_ORDER";
         public static final String JOIN_TABLE_ORDER_ID = "T_ORDER_ID";
-        public static final String JOIN_TABLE_PRODUCT_ID = "T_PRODUCT_ID";
+        public static final String JOIN_TABLE_PRODUCT_ORDER_ID = "T_PRODUCT_ORDER_ID";
     };
 
     @UtilityClass
