@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 public interface OrderService extends GenericService<Order, OrderDTO, UUID> {
+
 }
+
 @Service
 @Transactional
 class OrderServiceImpl implements OrderService {
@@ -21,9 +23,11 @@ class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final GiraMapper giraMapper;
 
+
     OrderServiceImpl(OrderRepository orderRepository, GiraMapper giraMapper) {
         this.orderRepository = orderRepository;
         this.giraMapper = giraMapper;
+
     }
 
     @Override
@@ -35,4 +39,5 @@ class OrderServiceImpl implements OrderService {
     public ModelMapper getMapper() {
         return this.giraMapper;
     }
+
 }

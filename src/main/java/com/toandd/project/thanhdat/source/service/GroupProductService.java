@@ -8,12 +8,14 @@ import com.toandd.project.thanhdat.source.repository.GroupProductRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 public interface GroupProductService extends GenericService<GroupProduct, GroupProductDTO, UUID> {
 }
 @Service
+@Transactional
 class GroupProductServiceImpl implements GroupProductService {
 
     private final GroupProductRepository groupProductRepository;

@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -16,8 +17,14 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 public class ProductOrderDTO {
+    private UUID id;
+
     private Integer quantity;
+
     private Integer selfPrice;
+
     private Product product;
-    private Set<Order> orders = new LinkedHashSet<>();
+
+    private Order order;
+
 }

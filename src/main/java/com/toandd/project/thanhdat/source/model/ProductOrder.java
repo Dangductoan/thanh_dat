@@ -23,8 +23,11 @@ public class ProductOrder extends BaseEntity {
     private Integer quantity;
     @Column(name = BaseUtilityClass.ProductOrder.SELF_PRICE)
     private Integer selfPrice;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
-    @ManyToMany(mappedBy = BaseUtilityClass.OrderMappedProductOrder.PRODUCT_ORDER_MAPPED_ORDER)
-    private Set<Order> orders = new LinkedHashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 }

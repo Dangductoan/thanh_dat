@@ -1,6 +1,7 @@
 package com.toandd.project.thanhdat.source.dto;
 
 import com.toandd.project.thanhdat.source.model.Order;
+import com.toandd.project.thanhdat.source.model.TypeProduct;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,6 @@ public class ProductDTO {
     private String description;
     private String urlImage;
     private Integer buyPrice;
-    private Integer selfPrice;
     private Order.Status status;
+    private TypeProduct typeProduct;
 }

@@ -44,6 +44,9 @@ public interface GenericService<T extends BaseEntity, D, I> {
         T saveModel = getRepository().save(model);
         return getMapper().map(saveModel, dtoClass);
     }
+    default List<T> findByIds(List<I> ids) {
+        return getRepository().findAllById(ids);
+    };
     //update dto
 
 

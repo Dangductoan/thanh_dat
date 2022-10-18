@@ -59,23 +59,7 @@ public class Order extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "T_CUSTOMER_ID", nullable = false)
     private Customer customer;
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = BaseUtilityClass.OrderMappedProductOrder.JOIN_TABLE,
-            joinColumns = @JoinColumn(name = BaseUtilityClass.OrderMappedProductOrder.JOIN_TABLE_ORDER_ID),
-            inverseJoinColumns = @JoinColumn(name = BaseUtilityClass.OrderMappedProductOrder.JOIN_TABLE_PRODUCT_ORDER_ID)
-    )
-    private Set<ProductOrder> productOrders = new LinkedHashSet<>();
 
-    public void addProduct(ProductOrder productOrder) {
-        this.productOrders.add(productOrder);
-        productOrder.getOrders().add(this);
-    }
-
-    public void removeProduct(ProductOrder productOrder) {
-        this.productOrders.remove(productOrder);
-        productOrder.getOrders().remove(this);
-    }
 
     @Override
     public int hashCode() {

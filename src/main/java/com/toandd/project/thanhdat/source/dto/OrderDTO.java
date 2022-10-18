@@ -2,6 +2,7 @@ package com.toandd.project.thanhdat.source.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.toandd.project.thanhdat.common.util.DateTimeUtils;
+import com.toandd.project.thanhdat.source.model.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,5 +37,8 @@ public class OrderDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = DateTimeUtils.DATE_TIME_FORMAT)
     @DateTimeFormat(pattern = DateTimeUtils.DATE_TIME_FORMAT)
     private LocalDateTime requiredDate;
+
+    private Customer customer;
+
 
 }

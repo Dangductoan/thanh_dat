@@ -4,6 +4,7 @@ import com.toandd.project.thanhdat.common.dto.ResponseDTO;
 import lombok.experimental.UtilityClass;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.Collections;
@@ -34,6 +35,18 @@ public class ResponseUtils {
         );
     }
     public static ResponseEntity<ResponseDTO> error(MethodArgumentNotValidException exception, HttpStatus status) {
+        return new ResponseEntity<>(
+                ResponseDTO.builder()
+                        .content(null)
+                        .hasErrors(true)
+                        .errors(ExceptionUtils.getErrors(exception))
+                        .timeStamp(DateTimeUtils.now())
+                        .status(status.value())
+                        .build(),
+                status
+        );
+    }
+    public static ResponseEntity<ResponseDTO> error(HttpMessageNotWritableException exception, HttpStatus status) {
         return new ResponseEntity<>(
                 ResponseDTO.builder()
                         .content(null)
