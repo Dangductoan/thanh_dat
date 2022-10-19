@@ -26,7 +26,7 @@ public class ProductOrderRestResource {
                 HttpStatus.OK
         );
     }
-    @PostMapping
+    @PostMapping("/create")
     public Object save(@RequestBody @Valid ProductOrderDTO dto) {
         return ResponseUtils.get(
           productOrderService.save(dto, ProductOrder.class, ProductOrderDTO.class),

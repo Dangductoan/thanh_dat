@@ -27,7 +27,7 @@ public class OrderRestResource {
         );
     }
 
-    @PostMapping()
+    @PostMapping("/create")
     public Object save(@RequestBody @Valid OrderDTO dto) {
         return ResponseUtils.get(
                 orderService.save(dto, Order.class, OrderDTO.class),
