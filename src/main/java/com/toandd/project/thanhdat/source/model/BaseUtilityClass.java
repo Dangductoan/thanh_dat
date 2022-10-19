@@ -23,25 +23,9 @@ public class BaseUtilityClass {
         public static final String CODE = "T_CODE";
         public static final String DESCRIPTION = "T_DESCRIPTION";
 
-    };
-    @UtilityClass
-    public static class GroupProduct {
-
-        public static final String TABLE_NAME = "T_GROUP_PRODUCT";
-        public static final String NAME = "T_NAME";
-        public static final String CODE = "T_CODE";
-        public static final String DESCRIPTION = "T_DESCRIPTION";
-
+        public static final String GROUP_PRODUCT = "T_GROUP_PRODUCT";
     };
 
-    @UtilityClass
-    public static class OrderMappedProductOrder {
-
-        public static final String PRODUCT_ORDER_MAPPED_ORDER = "productOrders";
-        public static final String JOIN_TABLE = "T_ORDER_MAPPED_PRODUCT_ORDER";
-        public static final String JOIN_TABLE_ORDER_ID = "T_ORDER_ID";
-        public static final String JOIN_TABLE_PRODUCT_ORDER_ID = "T_PRODUCT_ORDER_ID";
-    };
 
     @UtilityClass
     public static class Product {
