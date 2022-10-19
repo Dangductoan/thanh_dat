@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("auth/customers")
+@CrossOrigin
 public class CustomerRestResource {
     private final CustomerService customerService;
 
@@ -36,7 +37,7 @@ public class CustomerRestResource {
           HttpStatus.OK
         );
     }
-    @PostMapping
+    @PostMapping("/create")
     public Object saveCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
         return ResponseUtils.get(
           customerService.save(customerDTO, Customer.class, CustomerDTO.class),

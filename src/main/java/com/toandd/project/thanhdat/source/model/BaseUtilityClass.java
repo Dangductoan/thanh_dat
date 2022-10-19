@@ -2,10 +2,18 @@ package com.toandd.project.thanhdat.source.model;
 
 import lombok.experimental.UtilityClass;
 
-import javax.persistence.JoinColumn;
 
 @UtilityClass
 public class BaseUtilityClass {
+
+    @UtilityClass
+    public static class ProductOrder {
+
+        public static final String TABLE_NAME = "T_PRODUCT_ORDER" ;
+
+        public static final String QUANTITY = "T_QUANTITY";
+        public static final String SELF_PRICE = "T_SELF_PRICE";
+    };
 
     @UtilityClass
     public static class TypeProduct {
@@ -15,25 +23,9 @@ public class BaseUtilityClass {
         public static final String CODE = "T_CODE";
         public static final String DESCRIPTION = "T_DESCRIPTION";
 
-    };
-    @UtilityClass
-    public static class GroupProduct {
-
-        public static final String TABLE_NAME = "T_GROUP_PRODUCT";
-        public static final String NAME = "T_NAME";
-        public static final String CODE = "T_CODE";
-        public static final String DESCRIPTION = "T_DESCRIPTION";
-
+        public static final String GROUP_PRODUCT = "T_GROUP_PRODUCT";
     };
 
-    @UtilityClass
-    public static class OrderMappedProduct {
-
-        public static final String PRODUCT_MAPPED_ORDER = "products";
-        public static final String JOIN_TABLE = "T_ORDER_MAPPED_PRODUCT";
-        public static final String JOIN_TABLE_ORDER_ID = "T_ORDER_ID";
-        public static final String JOIN_TABLE_PRODUCT_ID = "T_PRODUCT_ID";
-    };
 
     @UtilityClass
     public static class Product {
@@ -46,6 +38,7 @@ public class BaseUtilityClass {
         public static final String URL_IMAGE = "T_URL_IMAGE";
         public static final String REGEX ="^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
+        public static final String SELF_PRICE = "SELF_PRICE" ;
     };
 
     @UtilityClass
