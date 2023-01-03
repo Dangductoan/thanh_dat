@@ -1,6 +1,7 @@
 package com.toandd.project.thanhdat.source.dto;
 
 import com.toandd.project.thanhdat.source.model.TypeProduct;
+import com.toandd.project.thanhdat.source.validation.anotation.UniqueTypeProductCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class TypeProductDTO {
 
     private String name;
 
+    @UniqueTypeProductCode
     private String code;
 
     private String description;

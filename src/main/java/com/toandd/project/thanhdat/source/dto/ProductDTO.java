@@ -17,11 +17,20 @@ import java.util.UUID;
 @SuperBuilder
 public class ProductDTO {
     private UUID id;
+
     private String name;
+
     private String code;
+
     private String description;
+
     private String urlImage;
+
     private Integer buyPrice;
+
+    private Integer firstPrice;
+
     private Order.Status status;
+
     private TypeProduct typeProduct;
 }

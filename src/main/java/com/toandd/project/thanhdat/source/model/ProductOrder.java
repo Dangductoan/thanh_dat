@@ -21,8 +21,8 @@ import java.util.Set;
 public class ProductOrder extends BaseEntity {
     @Column(name = BaseUtilityClass.ProductOrder.QUANTITY)
     private Integer quantity;
-    @Column(name = BaseUtilityClass.ProductOrder.SELF_PRICE)
-    private Integer selfPrice;
+    @Column(name = BaseUtilityClass.ProductOrder.LAST_PRICE)
+    private Integer lastPrice;
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
