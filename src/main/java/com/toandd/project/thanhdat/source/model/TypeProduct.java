@@ -1,6 +1,7 @@
 package com.toandd.project.thanhdat.source.model;
 
 import com.toandd.project.thanhdat.common.model.BaseEntity;
+import com.toandd.project.thanhdat.common.util.Regex;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Getter
 @Setter
@@ -25,6 +27,7 @@ public class TypeProduct extends BaseEntity {
 
     @Length(min = 5, max = 10, message = " code must have length between {min} and {max}")
     @Column(name = BaseUtilityClass.TypeProduct.CODE)
+    @Pattern(regexp = Regex.CODE_REGEX,message = "{type.code.regex}")
     private String code;
 
     @NotBlank

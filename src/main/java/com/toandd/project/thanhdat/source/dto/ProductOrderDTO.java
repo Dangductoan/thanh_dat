@@ -21,7 +21,7 @@ public class ProductOrderDTO {
 
     private Integer quantity;
 
-    private Integer selfPrice;
+    private Integer lastPrice;
 
     private Product product;
 

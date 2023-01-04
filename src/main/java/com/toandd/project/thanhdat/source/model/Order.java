@@ -3,6 +3,7 @@ package com.toandd.project.thanhdat.source.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.toandd.project.thanhdat.common.model.BaseEntity;
 import com.toandd.project.thanhdat.common.util.DateTimeUtils;
+import com.toandd.project.thanhdat.common.util.Regex;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -37,6 +39,7 @@ public class Order extends BaseEntity {
 
     @Length(min = 3, max = 10, message = " code must have length between {min} and {max}")
     @Column(name = BaseUtilityClass.Order.CODE)
+    @Pattern(regexp = Regex.CODE_REGEX,message = "{order.code.regex}")
     private String code;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DateTimeUtils.DATE_TIME_FORMAT)

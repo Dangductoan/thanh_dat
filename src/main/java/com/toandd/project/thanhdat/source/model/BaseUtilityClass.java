@@ -12,7 +12,7 @@ public class BaseUtilityClass {
         public static final String TABLE_NAME = "T_PRODUCT_ORDER" ;
 
         public static final String QUANTITY = "T_QUANTITY";
-        public static final String SELF_PRICE = "T_SELF_PRICE";
+        public static final String LAST_PRICE = "T_LAST_PRICE";
     };
 
     @UtilityClass
@@ -35,8 +35,8 @@ public class BaseUtilityClass {
         public static final String CODE = "T_CODE";
         public static final String DESCRIPTION = "T_DESCRIPTION";
         public static final String BUY_PRICE = "T_BUY_PRICE";
+        public static final String FIRST_PRICE = "T_FIRST_PRICE";
         public static final String URL_IMAGE = "T_URL_IMAGE";
-        public static final String REGEX ="^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
         public static final String SELF_PRICE = "SELF_PRICE" ;
     };
