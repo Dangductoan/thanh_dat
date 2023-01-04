@@ -37,7 +37,6 @@ public class BaseUtilityClass {
         public static final String BUY_PRICE = "T_BUY_PRICE";
         public static final String FIRST_PRICE = "T_FIRST_PRICE";
         public static final String URL_IMAGE = "T_URL_IMAGE";
-        public static final String REGEX ="^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
         public static final String SELF_PRICE = "SELF_PRICE" ;
     };

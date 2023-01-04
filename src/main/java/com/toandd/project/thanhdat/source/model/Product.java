@@ -1,6 +1,7 @@
 package com.toandd.project.thanhdat.source.model;
 
 import com.toandd.project.thanhdat.common.model.BaseEntity;
+import com.toandd.project.thanhdat.common.util.Regex;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Product extends BaseEntity {
 
     @Length(min = 5,max = 10,message = " code must have length between {min} and {max}")
     @Column(name = BaseUtilityClass.Product.CODE)
+    @Pattern(regexp = Regex.CODE_REGEX,message = "{product.code.regex}")
     private String code;
 
     @NotBlank
@@ -41,7 +43,7 @@ public class Product extends BaseEntity {
     private Integer firstPrice;
 
     @Column(name = BaseUtilityClass.Product.URL_IMAGE)
-    @Pattern(regexp = BaseUtilityClass.Product.REGEX)
+    @Pattern(regexp = Regex.LINK_REGEX,message = "khong dung dinh dang link")
     private String urlImage;
 
     @ManyToOne

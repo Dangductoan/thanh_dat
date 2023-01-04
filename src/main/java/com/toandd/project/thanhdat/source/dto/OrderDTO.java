@@ -2,6 +2,7 @@ package com.toandd.project.thanhdat.source.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.toandd.project.thanhdat.common.util.DateTimeUtils;
+import com.toandd.project.thanhdat.common.util.Regex;
 import com.toandd.project.thanhdat.source.model.BaseUtilityClass;
 import com.toandd.project.thanhdat.source.model.Customer;
 import com.toandd.project.thanhdat.source.model.Order;
@@ -17,6 +18,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -29,12 +31,11 @@ import java.util.UUID;
 public class OrderDTO {
     private UUID id;
 
-    @Size(min = 5, max = 30, message = "Tên hóa đơn phải có độ dài từ {min} đến {max}")
-    @NotNull(message = "Chưa nhập tên hóa đơn")
+    @Size(min = 5, max = 30, message = "Order name must be in length from {min} to {max}")
     private String name;
 
     @Size(min = 3, max = 10, message = "Mã hóa đơn phải có độ dài từ {min} đến {max}")
-    @NotNull(message = "Chưa nhập mã hóa đơn")
+    @Pattern(regexp = Regex.CODE_REGEX,message = "{order.code.regex}")
     private String code;
 
     @NotBlank
