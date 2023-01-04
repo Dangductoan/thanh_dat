@@ -1,6 +1,7 @@
 package com.toandd.project.thanhdat.source.dto;
 
 import com.toandd.project.thanhdat.common.util.Regex;
+import com.toandd.project.thanhdat.source.validation.anotation.UniqueCustomerCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class CustomerDTO {
 
     @Size(min = 5, max = 10, message = "code must have length between {min} and {max}")
     @Pattern(regexp = Regex.CODE_REGEX,message = "{customer.code.regex}")
+    @UniqueCustomerCode
     private String code;
 
     @NotNull(message = "{customer.address.null}")

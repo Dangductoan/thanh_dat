@@ -12,8 +12,6 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -21,15 +19,15 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name=BaseUtilityClass.Product.TABLE_NAME)
+@Table(name = BaseUtilityClass.Product.TABLE_NAME)
 public class Product extends BaseEntity {
-    @Length(min = 5,max = 100,message = " name must have length between {min} and {max}")
+    @Length(min = 5, max = 100, message = " name must have length between {min} and {max}")
     @Column(name = BaseUtilityClass.Product.NAME)
     private String name;
 
-    @Length(min = 5,max = 10,message = " code must have length between {min} and {max}")
+    @Length(min = 5, max = 10, message = " code must have length between {min} and {max}")
     @Column(name = BaseUtilityClass.Product.CODE)
-    @Pattern(regexp = Regex.CODE_REGEX,message = "{product.code.regex}")
+    @Pattern(regexp = Regex.CODE_REGEX, message = "{product.code.regex}")
     private String code;
 
     @NotBlank
@@ -43,11 +41,11 @@ public class Product extends BaseEntity {
     private Integer firstPrice;
 
     @Column(name = BaseUtilityClass.Product.URL_IMAGE)
-    @Pattern(regexp = Regex.LINK_REGEX,message = "khong dung dinh dang link")
+    @Pattern(regexp = Regex.LINK_REGEX, message = "{product.url.correct}")
     private String urlImage;
 
     @ManyToOne
-    @JoinColumn(name = "T_TYPE_PRODUCT_ID",nullable = false)
+    @JoinColumn(name = "T_TYPE_PRODUCT_ID", nullable = false)
     private TypeProduct typeProduct;
 
 }

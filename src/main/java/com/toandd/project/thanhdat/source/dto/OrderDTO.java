@@ -6,6 +6,7 @@ import com.toandd.project.thanhdat.common.util.Regex;
 import com.toandd.project.thanhdat.source.model.BaseUtilityClass;
 import com.toandd.project.thanhdat.source.model.Customer;
 import com.toandd.project.thanhdat.source.model.Order;
+import com.toandd.project.thanhdat.source.validation.anotation.UniqueOrderCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,7 @@ public class OrderDTO {
 
     @Size(min = 3, max = 10, message = "Mã hóa đơn phải có độ dài từ {min} đến {max}")
     @Pattern(regexp = Regex.CODE_REGEX,message = "{order.code.regex}")
+    @UniqueOrderCode
     private String code;
 
     @NotBlank
