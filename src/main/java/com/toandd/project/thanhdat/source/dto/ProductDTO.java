@@ -31,6 +31,7 @@ public class ProductDTO {
 
     private String description;
 
+    @Pattern(regexp = Regex.LINK_REGEX,message = "{product.url.correct}")
     private String urlImage;
 
     @NotNull(message = "Chưa nhập giá mua")
