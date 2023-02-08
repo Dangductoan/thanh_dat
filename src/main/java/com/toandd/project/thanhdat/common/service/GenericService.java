@@ -1,5 +1,6 @@
 package com.toandd.project.thanhdat.common.service;
 
+import com.toandd.project.thanhdat.common.exception.GiraBusinessException;
 import com.toandd.project.thanhdat.common.model.BaseEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
@@ -32,22 +33,27 @@ public interface GenericService<T extends BaseEntity, D, I> {
 
     }
     //find by id
-    default Optional<D> findById(I id, Class<Optional<D>> clazz) {
-        T t = getRepository().findById(id).orElse(null);
-        if (t == null)
-            return Optional.empty();
-        return getMapper().map(t, clazz);
-    }
+    default D findById(I id,Class<D> dtoClass) {
+        T model = getRepository().findById(id).orElseThrow(() -> new GiraBusinessException("Not found"));
+        return getMapper().map(model,dtoClass);
+    };
     //save dto
     default D save(D dto, Class<T> modelClass, Class<D> dtoClass) {
         T model = getMapper().map(dto, modelClass);
         T saveModel = getRepository().save(model);
         return getMapper().map(saveModel, dtoClass);
     }
+    //D update(D dto, Class<T> modelClass, Class<D> dtoClass);
+//    default D update(I id,D dto, Class<T> modelClass, Class<D> dtoClass) {
+//        T model = getRepository().findById(id).orElseThrow(() -> new GiraBusinessException("Not found"));
+//
+//    }
+
     default List<T> findByIds(List<I> ids) {
         return getRepository().findAllById(ids);
     };
     //update dto
+
 
 
 

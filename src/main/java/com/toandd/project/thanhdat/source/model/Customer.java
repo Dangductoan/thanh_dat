@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
@@ -21,6 +22,7 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
+@DynamicUpdate
 @Table(name = BaseUtilityClass.Customer.TABLE_NAME)
 public class Customer extends BaseEntity {
 

@@ -59,7 +59,6 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
-
     @Bean
     public AuthenticationManager manager(HttpSecurity http, UserDetailsServiceImpl userDetailsService) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
