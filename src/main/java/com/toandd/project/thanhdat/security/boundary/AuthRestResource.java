@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("")
 @CrossOrigin
 public class AuthRestResource {
 
@@ -20,13 +20,13 @@ public class AuthRestResource {
     }
 
 
-    @PostMapping("register")
+    @PostMapping("auth/register")
     public Object register(@RequestBody @Valid LoginDTO loginDTO) {
         return ResponseUtils.get(authService.register(loginDTO), HttpStatus.CREATED);
 
     }
 
-    @PostMapping("login")
+    @PostMapping("api/v1/login")
     public Object login(@RequestBody @Valid LoginDTO loginDTO) {
         return ResponseUtils.get(authService.login(loginDTO), HttpStatus.OK);
 

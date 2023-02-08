@@ -5,6 +5,10 @@ server:
     context-path: /thanhdat
 
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/thanh_dat
+    username: postgres
+    password: 123456
   config:
     import: optional:application-dev.yml
   jpa:
