@@ -40,7 +40,5 @@ public class ProductDTO {
     @NotNull(message = "Chưa nhập giá bán")
     private Integer firstPrice;
 
-    private Order.Status status;
-
     private TypeProduct typeProduct;
 }

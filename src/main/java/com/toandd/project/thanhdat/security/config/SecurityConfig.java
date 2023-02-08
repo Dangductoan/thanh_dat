@@ -53,13 +53,12 @@ public class SecurityConfig {
         return http.cors()
                 .and().csrf().disable()
                 .authorizeRequests(auth -> auth.antMatchers("/api/v1/**", "/auth/login").permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll())
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
-
     @Bean
     public AuthenticationManager manager(HttpSecurity http, UserDetailsServiceImpl userDetailsService) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)

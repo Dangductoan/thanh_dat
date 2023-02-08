@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,6 +28,7 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
+@DynamicUpdate
 @Table(name = BaseUtilityClass.Order.TABLE_NAME)
 public class Order extends BaseEntity {
     @Column(name = BaseUtilityClass.Order.NAME)

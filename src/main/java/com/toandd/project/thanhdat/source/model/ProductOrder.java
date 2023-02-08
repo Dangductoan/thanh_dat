@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
@@ -17,6 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
+@DynamicUpdate
 @Table(name=BaseUtilityClass.ProductOrder.TABLE_NAME)
 public class ProductOrder extends BaseEntity {
     @Column(name = BaseUtilityClass.ProductOrder.QUANTITY)
